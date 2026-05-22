@@ -1,0 +1,42 @@
+\section{Project Timeline and Key Milestones}
+\label{sec:timeline}
+
+To ensure accountability and mitigate logistical bottlenecks, the proposed 24--month development schedule utilizes a concurrent, pipelined engineering workflow. Rather than processing phases sequentially, data--driven dependencies overlap; early--stage micro--scale simulation outputs are immediately leveraged to develop and debug the macro--scale continuum solvers while long--term production runs continue to execute.
+
+\begin{table}[H]
+\centering
+\caption{24--Month Pipelined Multi--Scale Computational Project Timeline}
+\label{tab:timeline}
+\vspace{2mm}
+\small
+\begin{tabular}{llcc}
+\toprule
+\textbf{Phase} & \textbf{Key Technical Activities \& Deliverables} & \textbf{Months} & \textbf{Milestone} \\
+\midrule
+\textbf{I} & \textit{Micro--Scale Code Optimization \& Geometry Mapping} & & \\
+& $\bullet$ Configure Stokesian Dynamics architecture on Voyager cluster. & 01--04 & \\
+& $\bullet$ Map 3D coral canopy and sediment pore geometries. & 03--06 & \textbf{M1} \\
+\addlinespace
+\textbf{II} & \textit{Discrete Hydrodynamic Production Runs} & & \\
+& $\bullet$ Execute heavy multi--body simulations under strain fields ($\bm{{E}}^{\infty}$). & 06--16 & \\
+& $\bullet$ Extract boundary trapping efficiencies and mass fluxes. & 08--18 & \textbf{M2} \\
+\addlinespace
+\textbf{III} & \textit{Upscaling Framework \& Continuum Code Development} & & \\
+& $\bullet$ Debug upscaling protocols using early--stage pilot SD datasets. & 05--08 & \\
+& $\bullet$ Compute long--time asymptotic particle variance for $\bm{D}_{\text{eff}}$. & 09--18 & \\
+& $\bullet$ Integrate effective parameters into custom ADR numerical solvers. & 12--20 & \textbf{M3} \\
+\addlinespace
+\textbf{IV} & \textit{Empirical Validation \& Regional Tech Deployment} & & \\
+& $\bullet$ Validate upscaled numerical concentration fields against flume data. & 18--22 & \\
+& $\bullet$ Publish open--source suite and coordinate parameter transfer. & 22--24 & \textbf{M4} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Milestone Descriptions}
+\begin{itemize}
+    \item \textbf{Milestone 1 (Month 06):} Successful compilation and verification of the low--Reynolds Stokesian configuration files with custom boundary geometry arrays on the UPR HPC infrastructure.
+    \item \textbf{Milestone 2 (Month 16):} Completion of the full discrete simulation database tracking multi--body suspension trajectories across the entire targeted parameter space of local shear and salinity profiles.
+    \item \textbf{Milestone 3 (Month 20):} Complete integration of the mathematical upscaling protocol, generating verified effective dispersion tensors ($\bm{D}_{\text{eff}}$) and continuous kinetic trapping rates ($R$) free of \emph{ad hoc} constants.
+    \item \textbf{Milestone 4 (Month 24):} Public release of the validated open--source computational code repository alongside dissemination of findings in high--impact transport phenomena and computational mechanics journals.
+\end{itemize}

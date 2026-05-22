@@ -1,0 +1,12 @@
+metadata.tex
+*.toc
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.dvi
+*.pdf
+*.swp
+*.swo
+*.ps

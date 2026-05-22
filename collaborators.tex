@@ -1,0 +1,20 @@
+\section{Key Collaborators and Institutional Infrastructure}
+\label{sec:collaborators}
+
+The execution of this multi-scale computational framework relies on a robust network of international collaborators specializing in low-Reynolds-number hydrodynamics and colloidal transport, combined with high-performance computing (HPC) infrastructure capable of handling intensive many-body particle simulations.
+
+\subsection{Research Network and Advisory Expertise}
+The theoretical and algorithmic foundation of this proposal leverages a direct academic lineage in Stokesian Dynamics and advanced macrotransport processes. Institutional support and technical advisory channels include:
+\begin{itemize}
+    \item \textbf{Dr.~Carlos Rinaldi-Ramos (University of Florida):} A leading authority on multi-phase transport phenomena, complex fluid dynamics, and nanostructured suspensions under the direct academic lineage of Howard Brenner. Dr.~Rinaldi's expertise in interfacial transport and micro-rheology provides the foundational theoretical backing required to formulate the macrotransport upscaling protocols, ensuring that the continuous field transformations remain rigorously consistent with classical Brenner-scale physics.
+    \item \textbf{Dr.~Ubaldo M. C\'{o}rdova-Figueroa (University of Puerto Rico):} An expert in transport phenomena, fluid mechanics, and active colloidal suspensions under the lineage of John F. Brady. Dr.~C\'{o}rdova-Figueroa serves as a primary point of contact for validating the mathematical consistency of the Grand Resistance Tensor formulations and multi-body lubrication approximations within the microscopic simulation module.
+    \item \textbf{Dr.~Ayusman Sen (The Pennsylvania State University):} A pioneer in active matter, autonomous micro-motors, and chemically-driven transport. Dr.~Sen's foundational insights into active particle dynamics provide the theoretical baseline required to extend our Stokesian Dynamics module from passive terrigenous sediment tracking to the active, chemically-guided transport of motile coral larvae within benthic boundary layers.
+    \item \textbf{Dr.~Darrell Velegol (The Pennsylvania State University):} An authority on colloidal transport, phoretic flows, and particulate sedimentation. Dr.~Velegol's established methodologies in diffusion and phoretic transport under fluid shear gradients serve as an ideal benchmark for calibrating our deterministic micro-to-macro upscaling protocols, ensuring that the derived effective dispersion tensors ($\bm{D}_{\text{eff}}$) reflect rigorous colloid-scale physics.
+\end{itemize}
+
+\subsection{Computational Infrastructure and High-Performance Computing}
+The multi-body Stokesian Dynamics simulations—which require intensive far-field Ewald summations and real-time inversion of complex mobility matrices for large particle ensembles ($N \gg 10^3$)---will be executed utilizing dedicated access to advanced HPC infrastructure at the University of Puerto Rico:
+\begin{itemize}
+    \item \textbf{The Voyager Cluster:} Utilized for running parallelized, highly optimized molecular dynamics and discrete particle-tracking architectures (e.g., modified LAMMPS modules), allowing rapid exploration of various benthic geometry configurations.
+    \item \textbf{The Boquer\'{o}n Cluster (HPCf-UPR):} Utilized for intensive, multi-node high-throughput computing tasks. This platform will handle the statistical ensemble averaging required by the long-time asymptotic particle displacement variance formulas, generating the high-resolution datasets necessary to feed and validate the continuous macroscopic finite-difference transport equations.
+\end{itemize}

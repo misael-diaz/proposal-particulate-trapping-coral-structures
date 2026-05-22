@@ -1,0 +1,51 @@
+\section{Mathematical Framework and Methodology}
+\label{sec:methodology}
+
+\subsection{Microscopic Scale: Stokesian Dynamic}
+At the boundary layer of the benthic substrates, the fluid is governed by the steady, incompressible Stokes equations due to the intense separation of length scales ($Re \ll 1$):
+\begin{equation}
+    -\nabla p + \mu \nabla^2 \bm{u} = 0, \quad \nabla \cdot \bm{u} = 0
+\end{equation}
+For a suspension of $N$ rigid particles suspended in a non--uniform ambient velocity field, the particle kinematics must account for translation, rotation, and fluid deformation. The hydrodynamic forces ($\bm{F}$), torques ($\bm{T}$), and stresslets ($\bm{S}$) are linearly coupled to the particle translation ($\bm{U}$), angular velocity ($\bm{\Omega}$), and the ambient rate--of--strain tensor ($\bm{E}^{\infty}$) via the Grand Resistance Tensor $\bm{R}$:
+\begin{equation}
+    \begin{bmatrix}
+        \bm{F} \\
+        \bm{T} \\
+        \bm{S}
+    \end{bmatrix} = -\bm{R}(\bm{X}) \cdot 
+    \begin{bmatrix}
+        \bm{U} - \bm{U}^{\infty} \\
+        \bm{\Omega} - \bm{\Omega}^{\infty} \\
+        -\bm{E}^{\infty}
+    \end{bmatrix}
+\end{equation}
+where $\bm{X}$ represents the multi--body spatial configuration of the particles, $\bm{U}^{\infty}$ and $\bm{\Omega}^{\infty}$ are the ambient translation and rotation vectors, and $\bm{E}^{\infty}$ is the symmetric rate--of--strain tensor representing local fluid deformation:
+\begin{equation}
+    \bm{E}^{\infty} = \frac{1}{2} \left[ \nabla \bm{u}^{\infty} + (\nabla \bm{u}^{\infty})^T \right]
+\end{equation}
+The matrix $\bm{R}$ is split into far--field many--body interactions (computed using the inverse of the mobility matrix via Ewald summation) and close--range lubrication forces:
+\begin{equation}
+    \bm{R} = (\bm{M}^{\infty})^{-1} + \bm{R}_{\text{lub}}
+\end{equation}
+The configuration space evolves explicitly according to the particle linear and angular velocities:
+\begin{equation}
+    \frac{d\bm{X}}{dt} = \begin{bmatrix} \bm{U} \\ \bm{\Omega} \end{bmatrix}
+\end{equation}
+
+\subsection{Continuum Scale: Advection--Diffusion--Reaction Upscaling}
+To connect these discrete trajectories to a continuous field mapping suitable for regional environmental engineering, the particle distribution is averaged over a representative volume element to yield a continuous scalar field concentration $C(\bm{x}, t)$. The governing transport physics are defined by the macroscopic Advection--Diffusion--Reaction (ADR) equation:
+\begin{equation}
+    \frac{\partial C}{\partial t} + \bm{\langle u \rangle} \cdot \nabla C = \nabla \cdot \left( \bm{D}_{\text{eff}} \cdot \nabla C \right) - R(C)
+\end{equation}
+where $\bm{\langle u \rangle}$ is the mean advective phase velocity. 
+
+Rather than relying on empirical tuning, the Effective Hydrodynamic Dispersion Tensor $\bm{D}_{\text{eff}}$ and the Kinetic Trapping Rate $R(C)$ are derived deterministically from the microstructure simulation data:
+\begin{enumerate}
+    \item \textbf{Dispersion Upscaling:} $\bm{D}_{\text{eff}}$ is computed directly from the long--time asymptotic variance of the discrete particle displacements generated in the Stokesian Dynamics module:
+    \begin{equation}
+        \bm{D}_{\text{eff}} = \lim_{t \to \infty} \frac{1}{2t} \langle [\bm{X}(t) - \langle \bm{X}(t) \rangle][\bm{X}(t) - \langle \bm{X}(t) \rangle]^T \rangle
+    \end{equation}
+    \item \textbf{Reaction/Sink Term Calibration:} The volumetric trapping rate $R(C)$---representing particle accumulation onto the coral mucus or sediment matrix boundary layer---is defined by evaluating the net flux of particles cross--referencing the physical solid boundaries in the discrete simulation.
+\end{enumerate}
+
+By mathematically matching the discrete particle--tracking distributions to the continuous scalar fields, the underlying low--level physics are upscaled to derive mathematically rigorous, effective parameters, completely eliminating the reliance on arbitrary \emph{ad hoc} parameterizations within the macro--scale transport equations \cite{brenner1993macrotransport, brenner1980generalized, rinaldi2005magnetic}.
