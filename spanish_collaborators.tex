@@ -1,0 +1,20 @@
+\section{Colaboradores clave e infraestructura institucional}
+\label{sec:collaborators}
+
+La ejecución de este marco computacional multiescala se fundamenta en una sólida red de colaboradores internacionales especializados en hidrodinámica de bajos números de Reynolds y transporte coloidal, en combinación con una infraestructura de cómputo de alto rendimiento (HPC) capaz de procesar simulaciones intensivas de partículas de muchos cuerpos.
+
+\subsection{Red de investigación y asesoría experta}
+La base teórica y algorítmica de esta propuesta aprovecha un linaje académico directo en Dinámica Stokesiana y procesos avanzados de macrotransporte. Los canales de apoyo institucional y asesoría técnica incluyen:
+\begin{itemize}
+    \item \textbf{Dr.~Carlos Rinaldi-Ramos (University of Florida):} Una autoridad líder en fenómenos de transporte multifásico, dinámica de fluidos complejos y suspensiones nanoestructuradas bajo el linaje académico directo de Howard Brenner. La experiencia del Dr.~Rinaldi en transporte interfacial y microrreología proporciona el respaldo teórico fundamental requerido para formular los protocolos de escalamiento de macrotransporte, asegurando que las transformaciones de campo continuo mantengan una rigurosa consistencia con la física clásica de la escala de Brenner.
+    \item \textbf{Dr.~Ubaldo M. C\'{o}rdova-Figueroa (Universidad de Puerto Rico):} Experto en fenómenos de transporte, mecánica de fluidos y suspensiones coloidales activas bajo el linaje de John F. Brady. El Dr.~C\'{o}rdova-Figueroa actúa como el principal punto de contacto para validar la consistencia matemática de las formulaciones del Gran Tensor de Resistencia y las aproximaciones de lubricación de muchos cuerpos dentro del módulo de simulación microscópica.
+    \item \textbf{Dr.~Ayusman Sen (The Pennsylvania State University):} Pionero en materia activa, micromotores autónomos y transporte guiado químicamente. Las perspectivas fundamentales del Dr.~Sen en la dinámica de partículas activas proporcionan la base teórica requerida para extender nuestro módulo de Dinámica Stokesiana desde el seguimiento pasivo de sedimentos terrígenos hacia el transporte activo y guiado químicamente de larvas de coral móviles dentro de las capas límite bentónicas.
+    \item \textbf{Dr.~Darrell Velegol (The Pennsylvania State University):} Una autoridad en transporte coloidal, flujos fóricos y sedimentación de partículas. Las metodologías establecidas por el Dr.~Velegol en difusión y transporte fórico bajo gradientes de cizallamiento de fluidos sirven como un estándar ideal para calibrar nuestros protocolos deterministas de escalamiento de micro a macro, asegurando que los tensores de dispersión efectiva derivados ($\bm{D}_{\text{eff}}$) reflejen una física rigurosa a escala coloidal.
+\end{itemize}
+
+\subsection{Infraestructura computacional y cómputo de alto rendimiento}
+Las simulaciones de Dinámica Stokesiana de muchos cuerpos ---las cuales requieren sumatorias de Ewald de campo lejano intensivas e inversión en tiempo real de matrices de movilidad complejas para grandes conjuntos de partículas ($N \gg 10^3$)--- se ejecutarán utilizando acceso dedicado a la infraestructura avanzada de HPC en la Universidad de Puerto Rico:
+\begin{itemize}
+    \item \textbf{El Clúster Voyager:} Utilizado para ejecutar arquitecturas paralelizadas y altamente optimizadas de dinámica molecular y seguimiento discreto de partículas (por ejemplo, módulos modificados de LAMMPS), lo que permitirá una exploración rápida de diversas configuraciones geométricas bentónicas.
+    \item \textbf{El Clúster Boquer\'{o}n (HPCf-UPR):} Utilizado para tareas intensivas de computación de alto rendimiento distribuidas en múltiples nodos. Esta plataforma manejará el promedio estadístico de conjuntos requerido por las fórmulas de varianza asintótica a tiempos largos del desplazamiento de partículas, generando los conjuntos de datos de alta resolución necesarios para alimentar y validar las ecuaciones continuas macroscópicas de transporte por diferencias finitas.
+\end{itemize}

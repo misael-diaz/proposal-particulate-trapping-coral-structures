@@ -1,0 +1,51 @@
+\section{Marco matemático y metodología}
+\label{sec:methodology}
+
+\subsection{Escala microscópica: Dinámica Stokesiana}
+En la capa límite de los sustratos bentónicos, el fluido está gobernado por las ecuaciones de Stokes estacionarias e incompresibles debido a la intensa separación de las escalas de longitud ($Re \ll 1$):
+\begin{equation}
+    -\nabla p + \mu \nabla^2 \bm{u} = 0, \quad \nabla \cdot \bm{u} = 0
+\end{equation}
+Para una suspensión de $N$ partículas rígidas sumergidas en un campo de velocidad ambiental no uniforme, la cinemática de las partículas debe dar cuenta de la traslación, la rotación y la deformación del fluido. Las fuerzas hidrodinámicas ($\bm{F}$), los torques ($\bm{T}$) y los dipolos de esfuerzo o \emph{stresslets} ($\bm{S}$) están linealmente acoplados a la traslación de la partícula ($\bm{U}$), la velocidad angular ($\bm{\Omega}$) y el tensor de velocidad de deformación ambiental ($\bm{E}^{\infty}$) a través del Gran Tensor de Resistencia $\bm{R}$:
+\begin{equation}
+    \begin{bmatrix}
+        \bm{F} \\
+        \bm{T} \\
+        \bm{S}
+    \end{bmatrix} = -\bm{R}(\bm{X}) \cdot 
+    \begin{bmatrix}
+        \bm{U} - \bm{U}^{\infty} \\
+        \bm{\Omega} - \bm{\Omega}^{\infty} \\
+        -\bm{E}^{\infty}
+    \end{bmatrix}
+\end{equation}
+donde $\bm{X}$ representa la configuración espacial de muchos cuerpos de las partículas, $\bm{U}^{\infty}$ y $\bm{\Omega}^{\infty}$ son los vectores ambientales de traslación y rotación, y $\bm{E}^{\infty}$ es el tensor simétrico de velocidad de deformación que representa la deformación local del fluido:
+\begin{equation}
+    \bm{E}^{\infty} = \frac{1}{2} \left[ \nabla \bm{u}^{\infty} + (\nabla \bm{u}^{\infty})^T \right]
+\end{equation}
+La matriz $\bm{R}$ se divide en interacciones de muchos cuerpos de campo lejano (calculadas utilizando la inversa de la matriz de movilidad mediante la sumatoria de Ewald) y fuerzas de lubricación de rango corto:
+\begin{equation}
+    \bm{R} = (\bm{M}^{\infty})^{-1} + \bm{R}_{\text{lub}}
+\end{equation}
+El espacio de configuración evoluciona explícitamente de acuerdo con las velocidades lineales y angulares de las partículas:
+\begin{equation}
+    \frac{d\bm{X}}{dt} = \begin{bmatrix} \bm{U} \\ \bm{\Omega} \end{bmatrix}
+\end{equation}
+
+\subsection{Escala continua: Escalamiento de advección-difusión-reacción}
+Para conectar estas trayectorias discretas con un mapeo de campo continuo adecuado para la ingeniería ambiental regional, la distribución de partículas se promedia sobre un elemento de volumen representativo para producir una concentración de campo escalar continua $C(\bm{x}, t)$. La física de transporte gobernante está definida por la ecuación macroscópica de Advección-Difusión-Reacción (ADR):
+\begin{equation}
+    \frac{\partial C}{\partial t} + \bm{\langle u \rangle} \cdot \nabla C = \nabla \cdot \left( \bm{D}_{\text{eff}} \cdot \nabla C \right) - R(C)
+\end{equation}
+donde $\bm{\langle u \rangle}$ es la velocidad de fase advectiva media. 
+
+En lugar de depender de un ajuste empírico, el Tensor de Dispersión Hidrodinámica Efectiva $\bm{D}_{\text{eff}}$ y la Tasa de Captura Kinética $R(C)$ se derivan de manera determinista a partir de los datos de simulación de la microestructura:
+\begin{enumerate}
+    \item \textbf{Escalamiento de la dispersión:} $\bm{D}_{\text{eff}}$ se calcula directamente a partir de la varianza asintótica a tiempos largos de los desplazamientos discretos de las partículas generados en el módulo de Dinámica Stokesiana:
+    \begin{equation}
+        \bm{D}_{\text{eff}} = \lim_{t \to \infty} \frac{1}{2t} \langle [\bm{X}(t) - \langle \bm{X}(t) \rangle][\bm{X}(t) - \langle \bm{X}(t) \rangle]^T \rangle
+    \end{equation}
+    \item \textbf{Calibración del término de reacción/sumidero:} La tasa de captura volumétrica $R(C)$ ---que representa la acumulación de partículas en el mucus de coral o en la capa límite de la matriz del sedimento--- se define mediante la evaluación del flujo neto de partículas que cruzan las fronteras sólidas físicas en la simulación discreta.
+\end{enumerate}
+
+Al acoplar matemáticamente las distribuciones discretas de seguimiento de partículas con los campos escalares continuos, la física subyacente de bajo nivel se escala para derivar parámetros efectivos matemáticamente rigurosos, eliminando por completo la dependencia de parametrizaciones arbitrarias \emph{ad hoc} dentro de las ecuaciones de transporte a macroescala \cite{brenner1993macrotransport, brenner1980dispersion, rinaldi2002body}.

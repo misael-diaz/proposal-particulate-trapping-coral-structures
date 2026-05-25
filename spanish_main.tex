@@ -1,0 +1,54 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.92]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsmath,amsfonts,amssymb,bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{microtype}
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\Large\bfseries\sffamily\nopagebreak}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                   {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                   {1.5ex \@plus .2ex}%
+                                   {\normalfont\large\bfseries\sffamily\nopagebreak}}
+\makeatother
+
+\include{spanish_title}
+
+\linespread{1.0}
+\begin{document}
+
+\maketitle
+
+\include{spanish_abstract}
+
+%\hr
+\tableofcontents
+%\hr
+
+\newpage
+
+\include{spanish_introduction}
+\include{spanish_justification}
+\include{spanish_methodology}
+\include{spanish_objectives}
+%\include{spanish_collaborators}
+\include{spanish_impact}
+\include{spanish_timeline}
+
+\newpage
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\end{document}
