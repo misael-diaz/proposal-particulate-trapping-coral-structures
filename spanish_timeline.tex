@@ -1,0 +1,42 @@
+\section{Cronograma del proyecto e hitos clave}
+\label{sec:timeline}
+
+Para garantizar la rendición de cuentas y mitigar los cuellos de botella logísticos, el cronograma de desarrollo propuesto de 24 meses utiliza un flujo de trabajo de ingeniería concurrente y segmentado (\emph{pipelined}). En lugar de procesar las fases de manera secuencial, las dependencias basadas en datos se superponen; los resultados de las simulaciones a microescala de las primeras etapas se aprovechan de inmediato para desarrollar y depurar los resolvedores continuos a macroescala mientras continúan ejecutándose las corridas de producción a largo plazo.
+
+\begin{table}[H]
+\centering
+\caption{Cronograma segmentado de 24 meses para el proyecto computacional multiescala}
+\label{tab:timeline}
+\vspace{2mm}
+\small
+\begin{tabular}{llcc}
+\toprule
+\textbf{Fase} & \textbf{Actividades técnicas clave y entregables} & \textbf{Meses} & \textbf{Hito} \\
+\midrule
+\textbf{I} & \textit{Optimización de código a microescala y mapeo geométrico} & & \\
+& $\bullet$ Configurar la arquitectura de Dinámica Stokesiana. & 01--04 & \\
+& $\bullet$ Mapear geometrías 3D de cubiertas coralinas y poros de sedimentos. & 03--06 & \textbf{H1} \\
+\addlinespace
+\textbf{II} & \textit{Corridas de producción hidrodinámica discreta} & & \\
+& $\bullet$ Ejecutar simulaciones intensivas de muchos cuerpos bajo campos de deformación ($\bm{{E}}^{\infty}$). & 06--16 & \\
+& $\bullet$ Extraer eficiencias de captura en fronteras y flujos de masa. & 08--18 & \textbf{H2} \\
+\addlinespace
+\textbf{III} & \textit{Marco de escalamiento y desarrollo de código continuo} & & \\
+& $\bullet$ Depurar protocolos de escalamiento usando conjuntos de datos piloto iniciales de SD. & 05--08 & \\
+& $\bullet$ Calcular la varianza asintótica a tiempos largos de partículas para $\bm{D}_{\text{eff}}$. & 09--18 & \\
+& $\bullet$ Integrar parámetros efectivos en resolvedores numéricos personalizados de ADR. & 12--20 & \textbf{H3} \\
+\addlinespace
+\textbf{IV} & \textit{Validación empírica y despliegue tecnológico regional} & & \\
+& $\bullet$ Validar campos de concentración numérica escalados frente a datos de canales de flujo. & 18--22 & \\
+& $\bullet$ Publicar la suite de código abierto y coordinar la transferencia de parámetros. & 22--24 & \textbf{H4} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Descripción de los hitos}
+\begin{itemize}
+    \item \textbf{Hito 1 (Mes 06):} Compilación y verificación exitosa de los archivos de configuración de Stokesian de bajo número de Reynolds con arreglos geométricos de frontera personalizados en una infraestructura de HPC.
+    \item \textbf{Hito 2 (Mes 16):} Finalización de la base de datos completa de simulación discreta, realizando el seguimiento de trayectorias de suspensiones de muchos cuerpos a través de todo el espacio de parámetros objetivo de perfiles locales de cizallamiento y salinidad.
+    \item \textbf{Hito 3 (Mes 20):} Integración completa del protocolo de escalamiento matemático, generando tensores de dispersión efectiva ($\bm{D}_{\text{eff}}$) y tasas de captura cinética continua ($R$) verificados y libres de constantes \emph{ad hoc}.
+    \item \textbf{Hito 4 (Mes 24):} Lanzamiento público del repositorio de código computacional de código abierto validado, junto con la difusión de los hallazgos en revistas de alto impacto en fenómenos de transporte y mecánica computacional.
+\end{itemize}
